@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\code\intro-refactoring\Unittest\excersise_refactoring\RefactoringSample1\RefactoringSample1.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>

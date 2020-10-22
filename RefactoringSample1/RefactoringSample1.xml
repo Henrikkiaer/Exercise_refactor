@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RefactoringSample1</name>
+    </assembly>
+    <members>
+        <member name="T:RefactoringSample1.Customer">
+            <summary>
+            The main customer class.
+            Contains all methods related to the customers actions
+            </summary>
+        </member>
+        <member name="M:RefactoringSample1.Customer.AddRental(RefactoringSample1.Rental)">
+            <summary>
+            Function to add a rental object to the customers list of rentals.
+            </summary>
+            <param name="rent">Rental A rent object</param>
+        </member>
+        <member name="M:RefactoringSample1.Customer.GetName">
+            <summary>
+            Function to get the name of a Customer.
+            </summary>
+            <returns>
+            string The name of the customer
+            </returns>
+        </member>
+        <member name="M:RefactoringSample1.Customer.GetTotalCharge">
+            <summary>
+            Function to get the total charge from a list of rentals.
+            </summary>
+            <remarks>
+            Will loop over a list of rentals, while calling the rentals internal charge calculating function.
+            </remarks>
+            <returns>
+            double The total charge from a set of rentals.
+            </returns>
+        </member>
+        <member name="M:RefactoringSample1.Customer.GetFrequentPoints">
+            <summary>
+            Function to get the total amount of frequency points from a list of rentals.
+            </summary>
+            <remarks>
+            Will loop over a list of rentals, while calling the rentals internal frequency point calculating function.
+            </remarks>
+            <returns>
+            int The total amount of frequency points from a set of rentals.
+            </returns>
+        </member>
+        <member name="M:RefactoringSample1.Customer.Statement">
+            <summary>
+            Method for generating a string response to the customer from the film rental service.
+            </summary>
+            <returns>
+            string  Returns a string response with the amount owned to the store, and the frequency points earned.
+            </returns>
+        </member>
+        <member name="M:RefactoringSample1.Customer.HtmlStatement">
+            <summary>
+            Method for generating a HTML response to the customer from the film rental service.
+            </summary>
+            <returns>
+            string Returns a string-HTML response with the amount owned to the store, and the frequency points earned.
+            </returns>
+        </member>
+        <member name="T:RefactoringSample1.Movie">
+            <summary>
+            Main Movie class
+            </summary>
+        </member>
+        <member name="F:RefactoringSample1.Movie.CHILDRENS">
+            <value> int Pricode for Childrens films. </value>
+        </member>
+        <member name="F:RefactoringSample1.Movie.REGULAR">
+            <value> int Pricode for regular films. </value>
+        </member>
+        <member name="F:RefactoringSample1.Movie.NEW_RELEASE">
+            <value> int Pricode for newly released films. </value>
+        </member>
+        <member name="F:RefactoringSample1.Movie.INTERNATIONAL">
+            <value> int Pricode for International films. </value>
+        </member>
+        <member name="F:RefactoringSample1.Movie._title">
+            <value> string Pricode for title of movie </value>
+        </member>
+        <member name="F:RefactoringSample1.Movie._price">
+            <value> Price model for the movie. </value>
+        </member>
+        <member name="M:RefactoringSample1.Movie.#ctor(System.String,System.Int32)">
+            <summary>
+            Constructor for the Movie class
+            </summary>
+            <param name="title">string with the title of the movie</param>
+            <param name="priceCode"> int of price code of the film which sets the _price object of the class</param>
+        </member>
+        <member name="M:RefactoringSample1.Movie.GetPriceCode">
+            <summary>
+            Get the price code of the movie.
+            </summary>
+            <returns> int Price code for the movie. </returns>
+        </member>
+        <member name="M:RefactoringSample1.Movie.SetPriceCode(System.Int32)">
+            <summary>
+            Sets the price code of the film as the correct Price class
+            </summary>
+            <param name="PriceCode">Price object corresponsing the type of movie. </param>
+        </member>
+        <member name="M:RefactoringSample1.Movie.GetTitle">
+            <summary>
+            Returns the title of the movie
+            </summary>
+            <returns> string Title of the movie. </returns>
+        </member>
+        <member name="T:RefactoringSample1.NewReleasePrice">
+            <inheritdoc/>
+        </member>
+        <member name="T:RefactoringSample1.Price">
+            <summary>
+            Abstract class for the prices of a movie.
+            Contains all methods for calculating charge and amount of frequency points accumulated
+            </summary>
+            <remarks> Abstract class meant for polymorfism to specific instances of Price classes. </remarks>
+        </member>
+        <member name="M:RefactoringSample1.Price.GetPriceCode">
+            <summary>
+            Collects the price code for a given movie type.
+            </summary>
+            <returns>int of price code.</returns>
+        </member>
+        <member name="M:RefactoringSample1.Price.GetCharge(System.Int32)">
+            <summary>
+            Method for calculating the charge of a rented movie.
+            </summary>
+            <param name="daysRented"> How many days the movie has been rented, int. </param>
+            <returns> The double precision value of the charge for the rental. </returns>
+        </member>
+        <member name="M:RefactoringSample1.Price.GetFrequencyPoints(System.Int32)">
+            <summary>
+            Method for returning the amount of frequency point a customer has earned through the rental.
+            </summary>
+            <param name="daysRented"> int How many days the movie has been rented for. </param>
+            <returns></returns>
+        </member>
+        <member name="T:RefactoringSample1.Rental">
+            <summary>
+            Main class for a rental, contains all methods needed to calculate charge and amount  of frequency points.
+            </summary>
+        </member>
+        <member name="F:RefactoringSample1.Rental._movie">
+            <value>Movie The _movie value is the movie that has been rented </value>
+        </member>
+        <member name="F:RefactoringSample1.Rental._daysRented">
+            <value> int The _daysRented value represents in int the amount of days _movie has been rented. </value>
+        </member>
+        <member name="M:RefactoringSample1.Rental.#ctor(RefactoringSample1.Movie,System.Int32)">
+            <summary>
+            Constructor for the Rental class
+            </summary>
+            <param name="movie">Movie object for the rental.</param>
+            <param name="daysRented">int Amount of days the movie is to be rented. </param>
+        </member>
+        <member name="M:RefactoringSample1.Rental.GetDaysRented">
+            <summary>
+            Method for returning 
+            </summary>
+            <returns>int Number of days for the rental</returns>
+        </member>
+        <member name="M:RefactoringSample1.Rental.GetMovie">
+            <summary>
+            Method for returning the movie in a rental.
+            </summary>
+            <returns>Movie The movie in the rental</returns>
+        </member>
+        <member name="M:RefactoringSample1.Rental.GetCharge(RefactoringSample1.Rental)">
+            <summary>
+            Method for calculating the cost of the rental
+            </summary>
+            <param name="rental">The rental object</param>
+            <returns>double The cost of renting said movie. </returns>
+        </member>
+        <member name="M:RefactoringSample1.Rental.GetFrequentPoints(RefactoringSample1.Rental)">
+            <summary>
+            Method for calculating the amount of frequency points that have been earned through the rental.
+            </summary>
+            <param name="rental"> Rental onject to use for calculations. </param>
+            <returns>int  Amount of frequency points earned. </returns>
+        </member>
+    </members>
+</doc>
